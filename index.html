@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Youuu</title>
+
+<style>
+body{
+    margin:0;
+    height:100vh;
+    background: radial-gradient(circle at center, #111 0%, #000 80%);
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    overflow:hidden;
+    perspective:1000px;
+    font-family:Arial, sans-serif;
+    color:white;
+}
+
+/* Floating glow particles */
+.particle{
+    position:absolute;
+    width:6px;
+    height:6px;
+    background:white;
+    border-radius:50%;
+    opacity:0.6;
+    box-shadow:0 0 10px white, 0 0 20px pink;
+    animation: float 10s linear infinite;
+}
+
+@keyframes float{
+    from{ transform:translateY(100vh); opacity:0;}
+    20%{ opacity:1;}
+    to{ transform:translateY(-10vh); opacity:0;}
+}
+
+/* Bouquet container */
+.bouquet{
+    position:relative;
+    width:350px;
+    height:450px;
+    transform-style:preserve-3d;
+}
+
+/* Gentle breathing animation */
+@keyframes breathe{
+    0%{ transform:translateY(0px);}
+    50%{ transform:translateY(-8px);}
+    100%{ transform:translateY(0px);}
+}
+
+.flower{
+    position:absolute;
+    width:140px;
+    height:140px;
+    animation:breathe 4s ease-in-out infinite;
+}
+
+/* Petals */
+.petal{
+    position:absolute;
+    width:70px;
+    height:110px;
+    border-radius:50%;
+    left:35px;
+    top:20px;
+    transform-origin:bottom center;
+    box-shadow:0 0 15px rgba(255,255,255,0.3);
+}
+
+/* Red & White gradients */
+.red .petal{
+    background: radial-gradient(circle at 30% 30%, #ff4d6d, #800020);
+}
+.white .petal{
+    background: radial-gradient(circle at 30% 30%, #ffffff, #d9d9d9);
+}
+
+/* Petal arrangement (3D layered) */
+.petal:nth-child(1){ transform:rotate(0deg) translateZ(20px);}
+.petal:nth-child(2){ transform:rotate(45deg) translateZ(15px);}
+.petal:nth-child(3){ transform:rotate(90deg) translateZ(20px);}
+.petal:nth-child(4){ transform:rotate(135deg) translateZ(15px);}
+.petal:nth-child(5){ transform:rotate(180deg) translateZ(20px);}
+.petal:nth-child(6){ transform:rotate(225deg) translateZ(15px);}
+.petal:nth-child(7){ transform:rotate(270deg) translateZ(20px);}
+.petal:nth-child(8){ transform:rotate(315deg) translateZ(15px);}
+
+/* Center glow */
+.center{
+    position:absolute;
+    width:40px;
+    height:40px;
+    background:gold;
+    border-radius:50%;
+    top:50px;
+    left:50px;
+    box-shadow:0 0 20px gold, 0 0 40px gold;
+}
+
+/* Flower positions (depth layering) */
+.flower1{ top:40px; left:110px; transform:translateZ(40px);}
+.flower2{ top:120px; left:30px; transform:translateZ(-20px);}
+.flower3{ top:120px; left:190px; transform:translateZ(-20px);}
+.flower4{ top:10px; left:60px; transform:translateZ(-40px);}
+.flower5{ top:10px; left:160px; transform:translateZ(-40px);}
+
+/* Stems */
+.stem{
+    position:absolute;
+    width:8px;
+    height:200px;
+    background:linear-gradient(to bottom,#0f0,#003300);
+    bottom:0;
+    border-radius:5px;
+}
+.stem1{ left:170px;}
+.stem2{ left:90px;}
+.stem3{ left:250px;}
+.stem4{ left:130px;}
+.stem5{ left:210px;}
+
+/* Wrap */
+.wrap{
+    position:absolute;
+    bottom:0;
+    left:80px;
+    width:200px;
+    height:150px;
+    background:linear-gradient(to top,#222,#555);
+    clip-path:polygon(0% 100%,50% 0%,100% 100%);
+    opacity:0.9;
+}
+
+h1{
+    position:absolute;
+    top:30px;
+    letter-spacing:3px;
+    font-weight:300;
+}
+</style>
+</head>
+
+<body>
+
+<h1>Happy Valentine's Miss!</h1>
+
+<div class="bouquet">
+
+    <div class="flower red flower1">
+        <div class="petal"></div><div class="petal"></div><div class="petal"></div><div class="petal"></div>
+        <div class="petal"></div><div class="petal"></div><div class="petal"></div><div class="petal"></div>
+        <div class="center"></div>
+    </div>
+
+    <div class="flower white flower2">
+        <div class="petal"></div><div class="petal"></div><div class="petal"></div><div class="petal"></div>
+        <div class="petal"></div><div class="petal"></div><div class="petal"></div><div class="petal"></div>
+        <div class="center"></div>
+    </div>
+
+    <div class="flower red flower3">
+        <div class="petal"></div><div class="petal"></div><div class="petal"></div><div class="petal"></div>
+        <div class="petal"></div><div class="petal"></div><div class="petal"></div><div class="petal"></div>
+        <div class="center"></div>
+    </div>
+
+    <div class="flower white flower4">
+        <div class="petal"></div><div class="petal"></div><div class="petal"></div><div class="petal"></div>
+        <div class="petal"></div><div class="petal"></div><div class="petal"></div><div class="petal"></div>
+        <div class="center"></div>
+    </div>
+
+    <div class="flower red flower5">
+        <div class="petal"></div><div class="petal"></div><div class="petal"></div><div class="petal"></div>
+        <div class="petal"></div><div class="petal"></div><div class="petal"></div><div class="petal"></div>
+        <div class="center"></div>
+    </div>
+
+    <div class="stem stem1"></div>
+    <div class="stem stem2"></div>
+    <div class="stem stem3"></div>
+    <div class="stem stem4"></div>
+    <div class="stem stem5"></div>
+
+    <div class="wrap"></div>
+
+</div>
+
+<script>
+for(let i=0;i<40;i++){
+    let p=document.createElement("div");
+    p.className="particle";
+    p.style.left=Math.random()*100+"vw";
+    p.style.animationDuration=(8+Math.random()*6)+"s";
+    p.style.animationDelay=Math.random()*5+"s";
+    document.body.appendChild(p);
+}
+</script>
+
+</body>
+</html>
